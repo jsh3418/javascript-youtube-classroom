@@ -2,13 +2,16 @@ import { $ } from "../utils/DOM.js";
 import { addSearchText, store } from "../model/model.js";
 import { APIKEY } from "../constants/apikey.js";
 import { paintVideoList } from "../view/view.js";
+import { paintSkeletonUI, removeSkeletonUI } from "../view/skeletonUI.js";
 
 const $searchInputKeyword = $("#search-input-keyword");
 
 export const handleSearchButton = async (event) => {
   event.preventDefault();
+  paintSkeletonUI();
   addSearchText($searchInputKeyword);
   const searchData = await searchYoutube(store.searchText);
+  removeSkeletonUI();
   paintVideoList(searchData);
 };
 
