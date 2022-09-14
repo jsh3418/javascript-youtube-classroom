@@ -1,1 +1,1 @@
-export const LOAD_VIDEO_COUNT = 5;
+export const LOAD_VIDEO_COUNT = 10;
