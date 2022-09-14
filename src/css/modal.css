@@ -9,7 +9,7 @@
   left: 0;
 }
 
-.modal-container.hide {
+.hide {
   display: none;
 }
 
@@ -68,11 +68,12 @@
 .search-result.search-result--no-result {
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .no-result__image {
-  width: 190px;
-  height: 140px;
+  display: block;
+  margin: auto;
   margin-bottom: 32px;
 }
 
