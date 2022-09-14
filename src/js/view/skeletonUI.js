@@ -1,8 +1,6 @@
 import { LOAD_VIDEO_COUNT } from "../constants/constants.js";
 import { $, $$ } from "../utils/DOM.js";
 
-const $videoList = $(".video-list");
-
 export const skeletonUI = `
 <li class="video-item skeletonUI" data-video-id="">
   <div class="video-item__thumbnail skeleton">
@@ -15,6 +13,7 @@ export const skeletonUI = `
 </li>`;
 
 export const paintSkeletonUI = () => {
+  const $videoList = $(".video-list");
   $videoList.innerHTML += skeletonUI.repeat(LOAD_VIDEO_COUNT);
 };
 

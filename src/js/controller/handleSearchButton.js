@@ -1,20 +1,23 @@
 import { $ } from "../utils/DOM.js";
 import { addSearchText, store } from "../model/model.js";
 import { APIKEY } from "../constants/apikey.js";
-import { paintEmptySearch, paintVideoList } from "../view/view.js";
+import { hideEmptySearchResult, paintVideoList } from "../view/view.js";
 import { paintSkeletonUI, removeSkeletonUI } from "../view/skeletonUI.js";
 import { LOAD_VIDEO_COUNT } from "../constants/constants.js";
+import { isShowEmptySearchResult } from "../validation/validation.js";
 
 const $searchInputKeyword = $("#search-input-keyword");
 
 export const handleSearchButton = async (event) => {
   event.preventDefault();
+  if (isShowEmptySearchResult()) {
+    hideEmptySearchResult();
+  }
   paintSkeletonUI();
   addSearchText($searchInputKeyword);
   const searchData = await searchYoutube(store.searchText);
   removeSkeletonUI();
   paintVideoList(searchData);
-  paintEmptySearch(searchData);
 };
 
 const searchYoutube = async (searchText) => {

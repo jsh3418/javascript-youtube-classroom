@@ -20,8 +20,12 @@ const searchResultVideoListTemplate = (imageUrl, title, channelName, publishedDa
 };
 
 export const paintVideoList = (data) => {
-  const items = data.items;
+  if (isEmptySearchResult(data)) {
+    showEmptySearchResult();
+    return;
+  }
 
+  const items = data.items;
   items.forEach((item) => {
     const imageUrl = item.snippet.thumbnails.high.url;
     const title = item.snippet.title;
@@ -32,15 +36,12 @@ export const paintVideoList = (data) => {
   });
 };
 
-export const paintEmptySearch = (searchResult) => {
-  if (isEmptySearchResult(searchResult)) {
-    const $searchResultNoResult = $(".search-result--no-result");
-    $searchResultNoResult.classList.remove("hide");
-    return;
-  }
-  if (!isEmptySearchResult(searchResult)) {
-    const $searchResultNoResult = $(".search-result--no-result");
-    $searchResultNoResult.classList.add("hide");
-    return;
-  }
+const $searchResultNoResult = $(".search-result--no-result");
+
+const showEmptySearchResult = () => {
+  $searchResultNoResult.classList.remove("hide");
+};
+
+export const hideEmptySearchResult = () => {
+  $searchResultNoResult.classList.add("hide");
 };
