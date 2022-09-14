@@ -21,6 +21,6 @@ export const paintSkeletonUI = () => {
 export const removeSkeletonUI = () => {
   const $$skeleton = $$(".skeletonUI");
   $$skeleton.forEach((element) => {
-    element.classList.add("hide");
+    element.remove();
   });
 };
