@@ -1,5 +1,6 @@
 import { $ } from "../utils/DOM.js";
 import { timeForToday } from "../utils/utils.js";
+import { isEmptySearchResult } from "../validation/validation.js";
 
 const $videoList = $(".video-list");
 
@@ -29,4 +30,17 @@ export const paintVideoList = (data) => {
 
     $videoList.innerHTML += searchResultVideoListTemplate(imageUrl, title, channelName, publishedDate);
   });
+};
+
+export const paintEmptySearch = (searchResult) => {
+  if (isEmptySearchResult(searchResult)) {
+    const $searchResultNoResult = $(".search-result--no-result");
+    $searchResultNoResult.classList.remove("hide");
+    return;
+  }
+  if (!isEmptySearchResult(searchResult)) {
+    const $searchResultNoResult = $(".search-result--no-result");
+    $searchResultNoResult.classList.add("hide");
+    return;
+  }
 };
