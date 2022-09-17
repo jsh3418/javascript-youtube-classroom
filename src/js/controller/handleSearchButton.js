@@ -20,7 +20,7 @@ export const handleSearchButton = async (event) => {
   paintVideoList(searchData);
 };
 
-const searchYoutube = async (searchText) => {
+export const searchYoutube = async (searchText) => {
   try {
     const option = {
       BASE_URL: "https://www.googleapis.com/youtube/v3/search",
