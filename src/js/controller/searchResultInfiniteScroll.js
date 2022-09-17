@@ -1,4 +1,4 @@
-import { store } from "../model/model.js";
+import { addStoreNextPageToken, store } from "../model/model.js";
 import { paintSkeletonUI, removeSkeletonUI } from "../view/skeletonUI.js";
 import { paintVideoList } from "../view/view.js";
 import { searchYoutube } from "./handleSearchButton.js";
@@ -10,5 +10,6 @@ export const searchResultInfiniteScroll = async () => {
     const searchData = await searchYoutube(store.searchText);
     removeSkeletonUI();
     paintVideoList(searchData);
+    addStoreNextPageToken(searchData);
   }
 };
