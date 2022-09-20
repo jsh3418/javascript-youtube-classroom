@@ -4,9 +4,9 @@ import { isEmptySearchResult } from "../validation/validation.js";
 
 const $videoList = $(".video-list");
 
-const searchResultVideoListTemplate = (imageUrl, title, channelName, publishedDate) => {
+const searchResultVideoListTemplate = (videoId, imageUrl, title, channelName, publishedDate) => {
   return `
-<li class="video-item" data-video-id="">
+<li class="video-item" data-video-id=${videoId}>
   <img 
     src=${imageUrl}
     alt="video-item-thumbnail"
@@ -19,29 +19,30 @@ const searchResultVideoListTemplate = (imageUrl, title, channelName, publishedDa
 </li>`;
 };
 
+const $searchResultNoResult = $(".search-result--no-result");
+
 export const paintVideoList = (data) => {
   if (isEmptySearchResult(data)) {
-    showEmptySearchResult();
+    showElement($searchResultNoResult);
     return;
   }
 
   const items = data.items;
   items.forEach((item) => {
+    const videoId = item.id.videoId;
     const imageUrl = item.snippet.thumbnails.high.url;
     const title = item.snippet.title;
     const channelName = item.snippet.channelTitle;
     const publishedDate = timeForToday(item.snippet.publishTime);
 
-    $videoList.innerHTML += searchResultVideoListTemplate(imageUrl, title, channelName, publishedDate);
+    $videoList.innerHTML += searchResultVideoListTemplate(videoId, imageUrl, title, channelName, publishedDate);
   });
 };
 
-const $searchResultNoResult = $(".search-result--no-result");
-
-const showEmptySearchResult = () => {
-  $searchResultNoResult.classList.remove("hide");
+export const showElement = (element) => {
+  element.classList.remove("hide");
 };
 
-export const hideEmptySearchResult = () => {
-  $searchResultNoResult.classList.add("hide");
+export const hideElement = (element) => {
+  element.classList.add("hide");
 };
