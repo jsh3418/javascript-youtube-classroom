@@ -3,9 +3,10 @@ import { APIKEY } from "../constants/apikey.js";
 import { hideElement, paintVideoList } from "../view/view.js";
 import { paintSkeletonUI, removeSkeletonUI } from "../view/skeletonUI.js";
 import { BASE_URL, LOAD_VIDEO_COUNT, LOCALSTORAGE_KEY } from "../constants/constants.js";
-import { addSearchText, addNextPageToken, store } from "../model/model.js";
+import { addSearchText, addNextPageToken, store, addRecentSearchText } from "../model/model.js";
 import { hideSaveButton } from "../view/saveVideos.js";
 import { getLocalStorage } from "../utils/utils.js";
+import { paintRecentSearchText } from "../view/recentSearchText.js";
 
 const $searchInputKeyword = $("#search-input-keyword");
 const $searchResultNoResult = $(".search-result--no-result");
@@ -15,6 +16,8 @@ export const handleSearchButton = async (event) => {
   hideElement($searchResultNoResult);
   paintSkeletonUI();
   addSearchText($searchInputKeyword);
+  addRecentSearchText($searchInputKeyword);
+  paintRecentSearchText();
   const searchData = await searchYoutube(store.searchText);
   removeSkeletonUI();
   paintVideoList(searchData);

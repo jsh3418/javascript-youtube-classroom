@@ -1,7 +1,10 @@
+import { RECENT_SEARCH_TEXT_MAX_LENGTH } from "../constants/constants.js";
+
 export const store = {
   searchText: null,
   nextPageToken: null,
   saveVideos: [],
+  recentSearchText: [],
 };
 
 export const addSearchText = (element) => {
@@ -20,4 +23,11 @@ export const addSaveVideos = (element) => {
     channelName: element.querySelector(".video-item__channel-name").textContent,
     date: element.querySelector(".video-item__published-date").textContent,
   });
+};
+
+export const addRecentSearchText = (element) => {
+  store.recentSearchText.unshift(element.value);
+  if (store.recentSearchText.length > RECENT_SEARCH_TEXT_MAX_LENGTH) {
+    store.recentSearchText.pop();
+  }
 };
