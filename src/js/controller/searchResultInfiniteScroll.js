@@ -4,7 +4,6 @@ import { paintSkeletonUI, removeSkeletonUI } from "../view/skeletonUI.js";
 import { paintVideoList } from "../view/view.js";
 import { searchYoutube } from "./handleSearchButton.js";
 import { isScrollBottom } from "../validation/validation.js";
-import { hideSaveButton } from "../view/saveVideos.js";
 
 const $videoList = $(".video-list");
 
@@ -15,6 +14,5 @@ export const searchResultInfiniteScroll = async () => {
     removeSkeletonUI();
     paintVideoList(searchData);
     addNextPageToken(searchData);
-    hideSaveButton();
   }
 };

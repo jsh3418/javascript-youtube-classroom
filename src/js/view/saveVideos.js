@@ -1,7 +1,3 @@
-import { store } from "../model/model.js";
-import { $$ } from "../utils/DOM.js";
-import { hideElement } from "./view.js";
-
 export const saveVideoTemplate = (src, title, channelName, date) => {
   return `
     <li class="video-item">
@@ -11,15 +7,4 @@ export const saveVideoTemplate = (src, title, channelName, date) => {
       <p class="video-item__published-date">${date}</p>
     </li>
     `;
-};
-
-export const hideSaveButton = () => {
-  const $$videoItem = $$(".video-item");
-  store.saveVideos.forEach((video) => {
-    $$videoItem.forEach((item) => {
-      if (video.dataVideoId === item.dataset.videoId) {
-        hideElement(item.querySelector("button"));
-      }
-    });
-  });
 };

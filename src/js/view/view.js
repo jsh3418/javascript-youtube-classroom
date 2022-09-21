@@ -1,6 +1,6 @@
 import { $ } from "../utils/DOM.js";
 import { timeForToday } from "../utils/utils.js";
-import { isEmptySearchResult } from "../validation/validation.js";
+import { isEmptySearchResult, isSaveVideo } from "../validation/validation.js";
 
 const $videoList = $(".video-list");
 
@@ -15,7 +15,7 @@ const searchResultVideoListTemplate = (videoId, imageUrl, title, channelName, pu
   <h4 class="video-item__title">${title}</h4>
   <p class="video-item__channel-name">${channelName}</p>
   <p class="video-item__published-date">${publishedDate}</p>
-  <button class="video-item__save-button button">⬇ 저장</button>
+  <button class="video-item__save-button button ${isSaveVideo(videoId) ? "hide" : ""}">⬇ 저장</button>
 </li>`;
 };
 
