@@ -1,8 +1,8 @@
 import { $ } from "../utils/DOM.js";
-import { removeClassName } from "../utils/utils.js";
+import { showElement } from "../view/view.js";
 
 const $modalContainer = $(".modal-container");
 
 export const handleSearchModalButton = () => {
-  removeClassName($modalContainer, "hide");
+  showElement($modalContainer);
 };

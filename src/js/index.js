@@ -5,7 +5,6 @@ import { searchResultInfiniteScroll } from "./controller/searchResultInfiniteScr
 import { handleVideoSaveButton } from "./controller/handleVideoSaveButton.js";
 
 const $searchModalButton = $("#search-modal-button");
-
 const $searchInput = $(".search-input");
 const $videoList = $(".video-list");
 

@@ -6,10 +6,6 @@ export const getLocalStorage = (key) => {
   return JSON.parse(localStorage.getItem(key));
 };
 
-export const removeClassName = (element, className) => {
-  element.classList.remove(className);
-};
-
 export const timeForToday = (value) => {
   const today = new Date();
   const timeValue = new Date(value);
