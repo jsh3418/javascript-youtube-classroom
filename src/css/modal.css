@@ -41,7 +41,20 @@
 .search-input {
   display: flex;
   justify-content: center;
+}
+
+.search-input-wrapper {
   margin-bottom: 40px;
+}
+
+.recent-search-text-wrapper {
+  margin: 10px 0px 10px 0px;
+}
+
+.recent-search-text {
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 5px;
 }
 
 .search-input__keyword {

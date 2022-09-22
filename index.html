@@ -21,11 +21,12 @@
         <h2 id="search-modal-title" class="search-modal__title">🔍 보고싶은 영상 찾기 🔍</h2>
 
         <form class="search-input">
-          <input id="search-input-keyword" type="text" placeholder="검색" class="search-input__keyword" />
+          <div class="search-input-wrapper">
+            <input id="search-input-keyword" type="text" placeholder="검색" class="search-input__keyword" />
+            <div class="recent-search-text-wrapper"></div>
+          </div>
           <button id="search-button" class="search-input__search-button button">검색</button>
         </form>
-
-        <div class="recent-search-text"></div>
 
         <section class="search-result">
           <!-- 검색 결과가 없을 때 띄워주는 태그 -->
