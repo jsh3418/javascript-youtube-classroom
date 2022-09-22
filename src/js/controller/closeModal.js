@@ -4,7 +4,7 @@ import { hideElement } from "../view/view.js";
 const $modalContainer = $(".modal-container");
 
 export const closeModal = (event) => {
-  if (event.target || event.key === "Escape") {
+  if (event.target.className === "dimmer" || event.key === "Escape") {
     hideElement($modalContainer);
   }
 };
