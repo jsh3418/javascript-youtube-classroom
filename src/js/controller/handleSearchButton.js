@@ -12,9 +12,6 @@ const $searchResultNoResult = $(".search-result--no-result");
 
 export const handleSearchButton = async (event) => {
   event.preventDefault();
-  if (getLocalStorage(LOCALSTORAGE_KEY) !== null) {
-    store.saveVideos = getLocalStorage(LOCALSTORAGE_KEY);
-  }
   hideElement($searchResultNoResult);
   paintSkeletonUI();
   addSearchText($searchInputKeyword);

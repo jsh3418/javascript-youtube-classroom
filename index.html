@@ -11,9 +11,22 @@
     <main id="app" class="classroom-container">
       <h1 class="classroom-container__title">👩🏻‍💻 나만의 유튜브 강의실 👨🏻‍💻</h1>
       <nav class="nav">
+        <button id="later-see-video-button" class="button nav__button">👁 볼 영상</button>
+        <button id="saw-video-button" class="button nav__button">✅ 본 영상</button>
         <button id="search-modal-button" class="button nav__button">🔍 검색</button>
       </nav>
     </main>
+
+    <div class="no-result hide">
+      <img src="./src/assets/images/not_found.png" alt="no result image" class="no-result__image" />
+      <p class="no-result__description">영상이 없습니다.</p>
+    </div>
+    <div id="later-see-video-wrapper">
+      <ul id="later-see-video-list"></ul>
+    </div>
+    <div id="saw-video-wrapper" class="hide">
+      <ul id="saw-video-list"></ul>
+    </div>
 
     <div class="modal-container hide">
       <div class="dimmer"></div>

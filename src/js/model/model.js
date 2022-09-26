@@ -3,7 +3,7 @@ import { RECENT_SEARCH_TEXT_MAX_LENGTH } from "../constants/constants.js";
 export const store = {
   searchText: null,
   nextPageToken: null,
-  saveVideos: [],
+  laterSeeVideos: [],
   recentSearchText: [],
 };
 
@@ -16,7 +16,7 @@ export const addNextPageToken = (data) => {
 };
 
 export const addSaveVideos = (element) => {
-  store.saveVideos.push({
+  store.laterSeeVideos.push({
     dataVideoId: element.dataset.videoId,
     src: element.querySelector("img").src,
     title: element.querySelector(".video-item__title").textContent,

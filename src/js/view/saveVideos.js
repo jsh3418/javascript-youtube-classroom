@@ -1,3 +1,6 @@
+import { $ } from "../utils/DOM.js";
+import { store } from "../model/model.js";
+
 export const saveVideoTemplate = (src, title, channelName, date) => {
   return `
     <li class="video-item">
@@ -7,4 +10,12 @@ export const saveVideoTemplate = (src, title, channelName, date) => {
       <p class="video-item__published-date">${date}</p>
     </li>
     `;
+};
+
+const $laterSeeVideoList = $("#later-see-video-list");
+
+export const paintLaterSeeVideos = () => {
+  store.laterSeeVideos.forEach((element) => {
+    $laterSeeVideoList.innerHTML += saveVideoTemplate(element.src, element.title, element.channelName, element.date);
+  });
 };

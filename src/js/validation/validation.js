@@ -9,7 +9,7 @@ export const isScrollBottom = (element) => {
 };
 
 export const isSaveVideo = (id) => {
-  return store.saveVideos.some((video) => {
+  return store.laterSeeVideos.some((video) => {
     return video.dataVideoId === id;
   });
 };
