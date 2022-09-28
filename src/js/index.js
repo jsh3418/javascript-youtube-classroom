@@ -5,12 +5,15 @@ import { searchResultInfiniteScroll } from "./controller/searchResultInfiniteScr
 import { handleVideoSaveButton } from "./controller/handleVideoSaveButton.js";
 import { closeModal } from "./controller/closeModal.js";
 import { initApp } from "./controller/initApp.js";
+import { handleCheckVideoButton } from "./controller/handleCheckVideoButton.js";
+import { handleRemoveVideoButton } from "./controller/handleRemoveVideoButton.js";
 
 const $searchModalButton = $("#search-modal-button");
 const $searchInput = $(".search-input");
 const $videoList = $(".video-list");
 const $dimmer = $(".dimmer");
 const $body = $("body");
+const $laterSeeVideoList = $("#later-see-video-list");
 
 const init = () => {
   $searchModalButton.addEventListener("click", handleSearchModalButton);
@@ -20,6 +23,8 @@ const init = () => {
   $dimmer.addEventListener("click", closeModal);
   $body.addEventListener("keydown", closeModal);
   window.addEventListener("DOMContentLoaded", initApp);
+  $laterSeeVideoList.addEventListener("click", handleCheckVideoButton);
+  $laterSeeVideoList.addEventListener("click", handleRemoveVideoButton);
 };
 
 init();

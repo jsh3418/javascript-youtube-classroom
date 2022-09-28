@@ -54,3 +54,9 @@ body {
   display: flex;
   gap: 32px 20px;
 }
+
+.video-button {
+  border: none;
+  background-color: inherit;
+  margin-right: 5px;
+}
