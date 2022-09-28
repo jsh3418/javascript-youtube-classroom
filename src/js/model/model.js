@@ -5,6 +5,7 @@ export const store = {
   nextPageToken: null,
   laterSeeVideos: [],
   recentSearchText: [],
+  currentPage: "laterSeeVideo",
 };
 
 export const addSearchText = (element) => {
@@ -31,4 +32,12 @@ export const addRecentSearchText = (element) => {
   if (store.recentSearchText.length > RECENT_SEARCH_TEXT_MAX_LENGTH) {
     store.recentSearchText.pop();
   }
+};
+
+export const changeCurrentPageToLaterSeeVideo = () => {
+  store.currentPage = "laterSeeVideo";
+};
+
+export const changeCurrentPageToSawVideo = () => {
+  store.currentPage = "sawVideo";
 };

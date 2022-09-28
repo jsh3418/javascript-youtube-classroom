@@ -1,6 +1,8 @@
-import { clearLaterSeeVideos, paintLaterSeeVideos } from "../view/saveVideos.js";
+import { changeCurrentPageToLaterSeeVideo, store } from "../model/model.js";
+import { clearLaterSeeVideos, paintSaveVideos } from "../view/saveVideos.js";
 
 export const handleLaterSeeVideoButton = () => {
+  changeCurrentPageToLaterSeeVideo();
   clearLaterSeeVideos();
-  paintLaterSeeVideos();
+  paintSaveVideos(store.currentPage);
 };

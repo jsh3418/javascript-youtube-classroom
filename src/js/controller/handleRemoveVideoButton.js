@@ -1,7 +1,7 @@
 import { store } from "../model/model.js";
 import { setLocalStorage } from "../utils/utils.js";
 import { LOCALSTORAGE_KEY } from "../constants/constants.js";
-import { clearLaterSeeVideos, paintLaterSeeVideos } from "../view/saveVideos.js";
+import { clearLaterSeeVideos, paintSaveVideos } from "../view/saveVideos.js";
 
 export const handleRemoveVideoButton = (event) => {
   const eventTarget = event.target;
@@ -15,7 +15,7 @@ export const handleRemoveVideoButton = (event) => {
 
   setLocalStorage(LOCALSTORAGE_KEY, store.laterSeeVideos);
   clearLaterSeeVideos();
-  paintLaterSeeVideos();
+  paintSaveVideos(store.currentPage);
 };
 
 const isRemoveVideoButton = (eventTarget) => {
