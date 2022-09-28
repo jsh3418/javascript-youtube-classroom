@@ -13,7 +13,7 @@ export const handleRemoveVideoButton = (event) => {
     removeVideo(eventTarget);
   }
 
-  setLocalStorage(LOCALSTORAGE_KEY, store.laterSeeVideos);
+  setLocalStorage(LOCALSTORAGE_KEY, store.saveVideos);
   clearLaterSeeVideos();
   paintSaveVideos(store.currentPage);
 };
@@ -23,9 +23,9 @@ const isRemoveVideoButton = (eventTarget) => {
 };
 
 const removeVideo = (eventTarget) => {
-  store.laterSeeVideos.forEach((element, index) => {
+  store.saveVideos.forEach((element, index) => {
     if (element.dataVideoId === eventTarget.closest("li").dataset.videoId) {
-      store.laterSeeVideos.splice(index, 1);
+      store.saveVideos.splice(index, 1);
     }
   });
 };

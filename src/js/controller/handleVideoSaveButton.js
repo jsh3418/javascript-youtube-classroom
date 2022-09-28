@@ -4,11 +4,11 @@ import { setLocalStorage } from "../utils/utils.js";
 import { hideElement } from "../view/view.js";
 
 export const handleVideoSaveButton = (event) => {
-  if (event.target.closest("button") && store.laterSeeVideos.length <= SAVE_VIDEOS_MAX_COUNT) {
+  if (event.target.closest("button") && store.saveVideos.length <= SAVE_VIDEOS_MAX_COUNT) {
     const videoList = event.target.closest("li");
 
     hideElement(event.target);
     addSaveVideos(videoList);
-    setLocalStorage(LOCALSTORAGE_KEY, store.laterSeeVideos);
+    setLocalStorage(LOCALSTORAGE_KEY, store.saveVideos);
   }
 };

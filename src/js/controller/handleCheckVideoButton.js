@@ -10,7 +10,7 @@ export const handleCheckVideoButton = (event) => {
   }
   clearLaterSeeVideos();
   paintSaveVideos(store.currentPage);
-  setLocalStorage(LOCALSTORAGE_KEY, store.laterSeeVideos);
+  setLocalStorage(LOCALSTORAGE_KEY, store.saveVideos);
 };
 
 const isCheckButton = (eventTarget) => {
@@ -18,7 +18,7 @@ const isCheckButton = (eventTarget) => {
 };
 
 const checkVideo = (eventTarget) => {
-  store.laterSeeVideos.forEach((video) => {
+  store.saveVideos.forEach((video) => {
     if (video.dataVideoId === eventTarget.closest("li").dataset.videoId) {
       video.isChecked = true;
     }

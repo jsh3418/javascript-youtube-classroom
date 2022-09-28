@@ -14,22 +14,22 @@ export const saveVideoTemplate = (dataVideoId, src, title, channelName, date) =>
     `;
 };
 
-const $laterSeeVideoList = $("#later-see-video-list");
+const $saveVideoList = $("#save-video-list");
 
 export const paintSaveVideos = (currentPage) => {
   if (currentPage === "laterSeeVideo") {
-    store.laterSeeVideos.forEach((element) => {
+    store.saveVideos.forEach((element) => {
       if (element.isChecked !== false) return;
-      $laterSeeVideoList.innerHTML += saveVideoTemplate(element.dataVideoId, element.src, element.title, element.channelName, element.date);
+      $saveVideoList.innerHTML += saveVideoTemplate(element.dataVideoId, element.src, element.title, element.channelName, element.date);
     });
 
     return;
   }
 
   if (currentPage === "sawVideo") {
-    store.laterSeeVideos.forEach((element) => {
+    store.saveVideos.forEach((element) => {
       if (element.isChecked !== true) return;
-      $laterSeeVideoList.innerHTML += saveVideoTemplate(element.dataVideoId, element.src, element.title, element.channelName, element.date);
+      $saveVideoList.innerHTML += saveVideoTemplate(element.dataVideoId, element.src, element.title, element.channelName, element.date);
     });
 
     return;
@@ -37,5 +37,5 @@ export const paintSaveVideos = (currentPage) => {
 };
 
 export const clearLaterSeeVideos = () => {
-  $laterSeeVideoList.innerHTML = "";
+  $saveVideoList.innerHTML = "";
 };

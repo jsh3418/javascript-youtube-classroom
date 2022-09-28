@@ -15,7 +15,7 @@ const $searchInput = $(".search-input");
 const $videoList = $(".video-list");
 const $dimmer = $(".dimmer");
 const $body = $("body");
-const $laterSeeVideoList = $("#later-see-video-list");
+const $saveVideoList = $("#save-video-list");
 const $sawVideoButton = $("#saw-video-button");
 const $laterSeeVideoButton = $("#later-see-video-button");
 
@@ -27,8 +27,8 @@ const init = () => {
   $dimmer.addEventListener("click", closeModal);
   $body.addEventListener("keydown", closeModal);
   window.addEventListener("DOMContentLoaded", initApp);
-  $laterSeeVideoList.addEventListener("click", handleCheckVideoButton);
-  $laterSeeVideoList.addEventListener("click", handleRemoveVideoButton);
+  $saveVideoList.addEventListener("click", handleCheckVideoButton);
+  $saveVideoList.addEventListener("click", handleRemoveVideoButton);
   $sawVideoButton.addEventListener("click", handleSawVideoButton);
   $laterSeeVideoButton.addEventListener("click", handleLaterSeeVideoButton);
 };
