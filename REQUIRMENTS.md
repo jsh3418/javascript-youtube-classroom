@@ -37,7 +37,7 @@
 - [x] 영상 카드의 이모지 버튼을 클릭하여 아래와 같은 상태 변경이 가능해야 한다.
   - [x] ✅ 본 영상으로 체크버튼을 누르면 isChecked를 true로 변경한다.
   - [x] 🗑️ 버튼으로 저장된 리스트에서 삭제할 수 있다. (삭제 시 사용자에게 정말 삭제할 것인지 물어봅니다.)
-- [ ] 본 영상, 볼 영상 버튼을 눌러 필터링 할 수 있다.
-  - [ ] 본 영상 버튼을 누르면 store.laterSeeVideos.isChecked 값이 true인 영상만 띄운다.
-  - [ ] 볼 영상 버튼을 누르면 store.laterSeeVideos.isChecked 값이 false인 영상만 띄운다.
+- [x] 본 영상, 볼 영상 버튼을 눌러 필터링 할 수 있다.
+  - [x] 본 영상 버튼을 누르면 store.laterSeeVideos.isChecked 값이 true인 영상만 띄운다.
+  - [x] 볼 영상 버튼을 누르면 store.laterSeeVideos.isChecked 값이 false인 영상만 띄운다.
 - [ ] 사용자가 버튼을 클릭했을 때 해당 행위가 정상적으로 동작하거나, 실패하였음을 **`snackbar`**를 통해 보여준다.

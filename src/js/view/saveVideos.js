@@ -18,6 +18,14 @@ const $laterSeeVideoList = $("#later-see-video-list");
 
 export const paintLaterSeeVideos = () => {
   store.laterSeeVideos.forEach((element) => {
+    if (element.isChecked !== false) return;
+    $laterSeeVideoList.innerHTML += saveVideoTemplate(element.dataVideoId, element.src, element.title, element.channelName, element.date);
+  });
+};
+
+export const paintSawVideos = () => {
+  store.laterSeeVideos.forEach((element) => {
+    if (element.isChecked !== true) return;
     $laterSeeVideoList.innerHTML += saveVideoTemplate(element.dataVideoId, element.src, element.title, element.channelName, element.date);
   });
 };

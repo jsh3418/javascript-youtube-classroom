@@ -2,9 +2,8 @@ import { $ } from "../utils/DOM.js";
 import { APIKEY } from "../constants/apikey.js";
 import { hideElement, paintVideoList } from "../view/view.js";
 import { paintSkeletonUI, removeSkeletonUI } from "../view/skeletonUI.js";
-import { BASE_URL, LOAD_VIDEO_COUNT, LOCALSTORAGE_KEY } from "../constants/constants.js";
+import { BASE_URL, LOAD_VIDEO_COUNT } from "../constants/constants.js";
 import { addSearchText, addNextPageToken, store, addRecentSearchText } from "../model/model.js";
-import { getLocalStorage } from "../utils/utils.js";
 import { paintRecentSearchText } from "../view/recentSearchText.js";
 
 const $searchInputKeyword = $("#search-input-keyword");

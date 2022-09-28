@@ -7,6 +7,8 @@ import { closeModal } from "./controller/closeModal.js";
 import { initApp } from "./controller/initApp.js";
 import { handleCheckVideoButton } from "./controller/handleCheckVideoButton.js";
 import { handleRemoveVideoButton } from "./controller/handleRemoveVideoButton.js";
+import { handleSawVideoButton } from "./controller/handleSawVideoButton.js";
+import { handleLaterSeeVideoButton } from "./controller/handleLaterSeeVideoButton.js";
 
 const $searchModalButton = $("#search-modal-button");
 const $searchInput = $(".search-input");
@@ -14,6 +16,8 @@ const $videoList = $(".video-list");
 const $dimmer = $(".dimmer");
 const $body = $("body");
 const $laterSeeVideoList = $("#later-see-video-list");
+const $sawVideoButton = $("#saw-video-button");
+const $laterSeeVideoButton = $("#later-see-video-button");
 
 const init = () => {
   $searchModalButton.addEventListener("click", handleSearchModalButton);
@@ -25,6 +29,8 @@ const init = () => {
   window.addEventListener("DOMContentLoaded", initApp);
   $laterSeeVideoList.addEventListener("click", handleCheckVideoButton);
   $laterSeeVideoList.addEventListener("click", handleRemoveVideoButton);
+  $sawVideoButton.addEventListener("click", handleSawVideoButton);
+  $laterSeeVideoButton.addEventListener("click", handleLaterSeeVideoButton);
 };
 
 init();
