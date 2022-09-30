@@ -1,5 +1,6 @@
 import { $ } from "../utils/DOM.js";
 import { store } from "../model/model.js";
+import { CURRENT_PAGE } from "../constants/constants.js";
 
 export const saveVideoTemplate = (dataVideoId, src, title, channelName, date) => {
   return `
@@ -17,7 +18,7 @@ export const saveVideoTemplate = (dataVideoId, src, title, channelName, date) =>
 const $saveVideoList = $("#save-video-list");
 
 export const paintSaveVideos = (currentPage) => {
-  if (currentPage === "laterSeeVideo") {
+  if (currentPage === CURRENT_PAGE.LATER_SEE_VIDEO) {
     store.saveVideos.forEach((element) => {
       if (element.isChecked !== false) return;
       $saveVideoList.innerHTML += saveVideoTemplate(element.dataVideoId, element.src, element.title, element.channelName, element.date);
@@ -26,7 +27,7 @@ export const paintSaveVideos = (currentPage) => {
     return;
   }
 
-  if (currentPage === "sawVideo") {
+  if (currentPage === CURRENT_PAGE.SAW_VIDEO) {
     store.saveVideos.forEach((element) => {
       if (element.isChecked !== true) return;
       $saveVideoList.innerHTML += saveVideoTemplate(element.dataVideoId, element.src, element.title, element.channelName, element.date);
