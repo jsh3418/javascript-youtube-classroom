@@ -5,6 +5,7 @@ import { LOCALSTORAGE_KEY } from "../constants/constants.js";
 import { clearLaterSeeVideos, paintSaveVideos } from "../view/saveVideos.js";
 import { isEmptySaveVideoList } from "../validation/validation.js";
 import { hideElement, showElement } from "../view/view.js";
+import { showSnackbar } from "../view/snackBar.js";
 
 const $noVideos = $(".no-videos");
 
@@ -18,6 +19,7 @@ export const handleRemoveVideoButton = (event) => {
   setLocalStorage(LOCALSTORAGE_KEY, store.saveVideos);
   clearLaterSeeVideos();
   paintSaveVideos(store.currentPage);
+  showSnackbar("영상을 삭제하였습니다.");
 
   isEmptySaveVideoList() ? showElement($noVideos) : hideElement($noVideos);
 };

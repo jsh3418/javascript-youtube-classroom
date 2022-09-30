@@ -40,4 +40,4 @@
 - [x] 본 영상, 볼 영상 버튼을 눌러 필터링 할 수 있다.
   - [x] 본 영상 버튼을 누르면 store.laterSeeVideos.isChecked 값이 true인 영상만 띄운다.
   - [x] 볼 영상 버튼을 누르면 store.laterSeeVideos.isChecked 값이 false인 영상만 띄운다.
-- [ ] 사용자가 버튼을 클릭했을 때 해당 행위가 정상적으로 동작하거나, 실패하였음을 **`snackbar`**를 통해 보여준다.
+- [x] 사용자가 버튼을 클릭했을 때 해당 행위가 정상적으로 동작하거나, 실패하였음을 **`snackbar`**를 통해 보여준다.
