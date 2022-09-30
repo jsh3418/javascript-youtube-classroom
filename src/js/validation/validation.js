@@ -1,3 +1,4 @@
+import { $ } from "../utils/DOM.js";
 import { store } from "../model/model.js";
 
 export const isEmptySearchResult = (searchResult) => {
@@ -12,4 +13,9 @@ export const isSaveVideo = (id) => {
   return store.saveVideos.some((video) => {
     return video.dataVideoId === id;
   });
+};
+
+export const isEmptySaveVideoList = () => {
+  const $saveVideoList = $("#save-video-list");
+  return $saveVideoList.childElementCount === 0;
 };
