@@ -6,20 +6,21 @@ import { showSnackbar } from "../view/snackBar.js";
 
 export const handleCheckVideoButton = (event) => {
   const eventTarget = event.target;
-  if (isCheckButton(eventTarget)) {
-    checkVideo(eventTarget);
-    clearLaterSeeVideos();
-    paintSaveVideos(store.currentPage);
-    setLocalStorage(LOCALSTORAGE_KEY, store.saveVideos);
-    showSnackbar("본 영상으로 처리하였습니다.");
-  }
+
+  if (!isCheckButton(eventTarget)) return;
+
+  checkStoreSaveVideo(eventTarget);
+  clearLaterSeeVideos();
+  paintSaveVideos(store.currentPage);
+  setLocalStorage(LOCALSTORAGE_KEY, store.saveVideos);
+  showSnackbar("본 영상으로 처리하였습니다.");
 };
 
 const isCheckButton = (eventTarget) => {
-  return eventTarget.closest("button") && eventTarget.closest("button").classList.contains("check-video-button");
+  return eventTarget.classList.contains("check-video-button");
 };
 
-const checkVideo = (eventTarget) => {
+const checkStoreSaveVideo = (eventTarget) => {
   store.saveVideos.forEach((video) => {
     if (video.dataVideoId === eventTarget.closest("li").dataset.videoId) {
       video.isChecked = true;
