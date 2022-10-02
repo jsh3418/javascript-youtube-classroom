@@ -1,14 +1,25 @@
-import { LOCALSTORAGE_KEY, SAVE_VIDEOS_MAX_COUNT } from "../constants/constants.js";
+import { ERROR_MESSAGE, LOCALSTORAGE_KEY, MAX_SAVE_VIDEO_COUNT } from "../constants/constants.js";
 import { addSaveVideos, store } from "../model/model.js";
 import { setLocalStorage } from "../utils/utils.js";
 import { hideElement } from "../view/view.js";
 
 export const handleVideoSaveButton = (event) => {
-  if (event.target.closest("button") && store.saveVideos.length <= SAVE_VIDEOS_MAX_COUNT) {
-    const videoList = event.target.closest("li");
+  const eventTarget = event.target;
 
-    hideElement(event.target);
-    addSaveVideos(videoList);
-    setLocalStorage(LOCALSTORAGE_KEY, store.saveVideos);
+  if (!isSaveButtonClick(eventTarget)) return;
+
+  if (isMaxSaveVideos()) {
+    alert(ERROR_MESSAGE.MAX_SAVE_VIDEO);
+    return;
   }
+
+  const video = eventTarget.closest("li");
+
+  hideElement(eventTarget);
+  addSaveVideos(video);
+  setLocalStorage(LOCALSTORAGE_KEY, store.saveVideos);
 };
+
+const isSaveButtonClick = (eventTarget) => eventTarget.classList.contains("video-item__save-button");
+
+const isMaxSaveVideos = () => store.saveVideos.length === MAX_SAVE_VIDEO_COUNT;
