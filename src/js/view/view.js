@@ -1,6 +1,6 @@
+import { store } from "../model/model.js";
 import { $ } from "../utils/DOM.js";
 import { timeForToday } from "../utils/utils.js";
-import { isEmptySearchResult, isSaveVideo } from "../validation/validation.js";
 
 const $videoList = $(".video-list");
 
@@ -17,6 +17,12 @@ const searchResultVideoListTemplate = (videoId, imageUrl, title, channelName, pu
   <p class="video-item__published-date">${publishedDate}</p>
   <button class="video-item__save-button button ${isSaveVideo(videoId) ? "hide" : ""}">⬇ 저장</button>
 </li>`;
+};
+
+const isSaveVideo = (id) => {
+  return store.saveVideos.some((video) => {
+    return video.dataVideoId === id;
+  });
 };
 
 const $searchResultNoResult = $(".search-result--no-result");
@@ -37,6 +43,10 @@ export const paintVideoList = (data) => {
 
     $videoList.innerHTML += searchResultVideoListTemplate(videoId, imageUrl, title, channelName, publishedDate);
   });
+};
+
+const isEmptySearchResult = (searchResult) => {
+  return searchResult.pageInfo.resultsPerPage === 0;
 };
 
 export const showElement = (element) => {
