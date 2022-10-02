@@ -19,18 +19,18 @@ const $saveVideoList = $("#save-video-list");
 
 export const paintSaveVideos = (currentPage) => {
   if (currentPage === CURRENT_PAGE.LATER_SEE_VIDEO) {
-    store.saveVideos.forEach((element) => {
-      if (element.isChecked !== false) return;
-      $saveVideoList.innerHTML += saveVideoTemplate(element.dataVideoId, element.src, element.title, element.channelName, element.date);
+    store.saveVideos.forEach((video) => {
+      if (video.isChecked !== false) return;
+      $saveVideoList.innerHTML += saveVideoTemplate(video.dataVideoId, video.src, video.title, video.channelName, video.date);
     });
 
     return;
   }
 
   if (currentPage === CURRENT_PAGE.SAW_VIDEO) {
-    store.saveVideos.forEach((element) => {
-      if (element.isChecked !== true) return;
-      $saveVideoList.innerHTML += saveVideoTemplate(element.dataVideoId, element.src, element.title, element.channelName, element.date);
+    store.saveVideos.forEach((video) => {
+      if (video.isChecked !== true) return;
+      $saveVideoList.innerHTML += saveVideoTemplate(video.dataVideoId, video.src, video.title, video.channelName, video.date);
     });
 
     return;
