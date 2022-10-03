@@ -16,18 +16,6 @@ export const saveVideoTemplate = (video) => {
     `;
 };
 
-// const isLikeVideo = (dataVideoId) => {
-//   return store.saveVideos.some((video) => {
-//     return video.dataVideoId ===
-//   })
-// };
-
-// const isSaveVideo = (id) => {
-//   return store.saveVideos.some((video) => {
-//     return video.dataVideoId === id;
-//   });
-// };
-
 const $saveVideoList = $("#save-video-list");
 
 export const paintSaveVideos = (currentPage) => {
@@ -43,6 +31,15 @@ export const paintSaveVideos = (currentPage) => {
   if (currentPage === CURRENT_PAGE.SAW_VIDEO) {
     store.saveVideos.forEach((video) => {
       if (video.isChecked !== true) return;
+      $saveVideoList.innerHTML += saveVideoTemplate(video);
+    });
+
+    return;
+  }
+
+  if (currentPage === CURRENT_PAGE.LIKE_VIDEO) {
+    store.saveVideos.forEach((video) => {
+      if (video.isLike !== true) return;
       $saveVideoList.innerHTML += saveVideoTemplate(video);
     });
 

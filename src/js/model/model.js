@@ -1,4 +1,4 @@
-import { CURRENT_PAGE, RECENT_SEARCH_TEXT_MAX_LENGTH } from "../constants/constants.js";
+import { RECENT_SEARCH_TEXT_MAX_LENGTH } from "../constants/constants.js";
 
 export const store = {
   searchText: null,
@@ -35,10 +35,6 @@ export const addRecentSearchText = (element) => {
   }
 };
 
-export const changeCurrentPageToLaterSeeVideo = () => {
-  store.currentPage = CURRENT_PAGE.LATER_SEE_VIDEO;
-};
-
-export const changeCurrentPageToSawVideo = () => {
-  store.currentPage = CURRENT_PAGE.SAW_VIDEO;
+export const updateCurrentPage = (currentPage) => {
+  store.currentPage = currentPage;
 };

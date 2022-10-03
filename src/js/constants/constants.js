@@ -6,6 +6,7 @@ export const RECENT_SEARCH_TEXT_MAX_LENGTH = 3;
 export const CURRENT_PAGE = {
   LATER_SEE_VIDEO: "laterSeeVideo",
   SAW_VIDEO: "sawVideo",
+  LIKE_VIDEO: "likeVideo",
 };
 export const ERROR_MESSAGE = {
   MAX_SAVE_VIDEO: "최대 저장할 수 있는 영상 갯수에 도달했습니다. 더 이상 영상을 저장할 수 없습니다.",
