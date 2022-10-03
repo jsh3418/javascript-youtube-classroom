@@ -66,6 +66,10 @@ body {
   opacity: 1;
 }
 
+.like-video {
+  opacity: 1;
+}
+
 /* The snackbar - position it at the bottom and in the middle of the screen */
 #snackbar {
   visibility: hidden; /* Hidden by default. Visible on click */

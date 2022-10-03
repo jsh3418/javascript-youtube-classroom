@@ -8,6 +8,7 @@ export const handleLikeVideoButton = (event) => {
   if (!isLikeButtonClick(eventTarget)) return;
 
   toggleLikeOfSaveVideo(eventTarget);
+  toggleClassListLikeVideo(eventTarget);
   setLocalStorage(LOCALSTORAGE_KEY, store.saveVideos);
 };
 
@@ -15,13 +16,17 @@ const isLikeButtonClick = (eventTarget) => {
   return eventTarget.classList.contains("like-video-button");
 };
 
-const isMatchVideoId = (videoId, eventTarget) => {
-  return videoId === eventTarget.closest("li").dataset.videoId;
-};
-
 const toggleLikeOfSaveVideo = (eventTarget) => {
   store.saveVideos.forEach((video) => {
     if (!isMatchVideoId(video.dataVideoId, eventTarget)) return;
     video.isLike = !video.isLike;
   });
+};
+
+const isMatchVideoId = (videoId, eventTarget) => {
+  return videoId === eventTarget.closest("li").dataset.videoId;
+};
+
+const toggleClassListLikeVideo = (eventTarget) => {
+  eventTarget.classList.toggle("like-video");
 };
