@@ -9,6 +9,7 @@ import { handleCheckVideoButton } from "./controller/handleCheckVideoButton.js";
 import { handleRemoveVideoButton } from "./controller/handleRemoveVideoButton.js";
 import { handleSawVideoButton } from "./controller/handleSawVideoButton.js";
 import { handleLaterSeeVideoButton } from "./controller/handleLaterSeeVideoButton.js";
+import { handleLikeVideoButton } from "./controller/handleLikeVideoButton.js";
 
 const $searchModalButton = $("#search-modal-button");
 const $searchInput = $(".search-input");
@@ -29,6 +30,7 @@ const init = () => {
   window.addEventListener("DOMContentLoaded", initApp);
   $saveVideoList.addEventListener("click", handleCheckVideoButton);
   $saveVideoList.addEventListener("click", handleRemoveVideoButton);
+  $saveVideoList.addEventListener("click", handleLikeVideoButton);
   $sawVideoButton.addEventListener("click", handleSawVideoButton);
   $laterSeeVideoButton.addEventListener("click", handleLaterSeeVideoButton);
 };

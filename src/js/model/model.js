@@ -19,6 +19,7 @@ export const addNextPageToken = (data) => {
 export const addSaveVideos = (element) => {
   store.saveVideos.push({
     isChecked: false,
+    isLike: false,
     dataVideoId: element.dataset.videoId,
     src: element.querySelector("img").src,
     title: element.querySelector(".video-item__title").textContent,
