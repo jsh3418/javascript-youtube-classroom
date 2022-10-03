@@ -11,6 +11,7 @@ export const saveVideoTemplate = (dataVideoId, src, title, channelName, date) =>
       <p class="video-item__published-date">${date}</p>
       <button class="check-video-button video-button">✅</button>
       <button class="remove-video-button video-button">🗑</button>
+      <button class="like-video-button video-button">👍</button>
     </li>
     `;
 };
