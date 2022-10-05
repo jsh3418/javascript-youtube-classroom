@@ -1,7 +1,7 @@
 import { $ } from "../utils/DOM.js";
 import { store } from "../model/model.js";
 import { setLocalStorage } from "../utils/utils.js";
-import { LOCALSTORAGE_KEY } from "../constants/constants.js";
+import { LOCALSTORAGE_KEY, SNACKBAR_MESSAGE } from "../constants/constants.js";
 import { clearLaterSeeVideos, paintSaveVideos } from "../view/saveVideos.js";
 import { isEmptySaveVideoList } from "../validation/validation.js";
 import { hideElement, showElement } from "../view/view.js";
@@ -19,7 +19,7 @@ export const handleRemoveVideoButton = (event) => {
   setLocalStorage(LOCALSTORAGE_KEY, store.saveVideos);
   clearLaterSeeVideos();
   paintSaveVideos(store.currentPage);
-  showSnackbar("영상을 삭제하였습니다.");
+  showSnackbar(SNACKBAR_MESSAGE.REMOVE_SAVE_VIDEO);
 
   isEmptySaveVideoList() ? showElement($noVideos) : hideElement($noVideos);
 };

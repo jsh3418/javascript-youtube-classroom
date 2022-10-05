@@ -1,5 +1,5 @@
 import { store } from "../model/model.js";
-import { LOCALSTORAGE_KEY } from "../constants/constants.js";
+import { LOCALSTORAGE_KEY, SNACKBAR_MESSAGE } from "../constants/constants.js";
 import { setLocalStorage } from "../utils/utils.js";
 import { clearLaterSeeVideos, paintSaveVideos } from "../view/saveVideos.js";
 import { showSnackbar } from "../view/snackBar.js";
@@ -15,7 +15,15 @@ export const handleCheckVideoButton = (event) => {
   paintSaveVideos(store.currentPage);
   setLocalStorage(LOCALSTORAGE_KEY, store.saveVideos);
 
-  isUncheck ? showSnackbar("본 영상으로 처리하였습니다.") : showSnackbar("볼 영상으로 처리하였습니다.");
+  if (isUncheck) {
+    showSnackbar(SNACKBAR_MESSAGE.CHANGE_SAW_VIDEO);
+    return;
+  }
+
+  if (!isUncheck) {
+    showSnackbar(SNACKBAR_MESSAGE.CHANGE_LATER_SEE_VIDEO);
+    return;
+  }
 };
 
 const isCheckButton = (eventTarget) => {
