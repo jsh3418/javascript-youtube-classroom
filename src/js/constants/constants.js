@@ -15,4 +15,6 @@ export const SNACKBAR_MESSAGE = {
   CHANGE_SAW_VIDEO: "본 영상으로 처리하였습니다.",
   CHANGE_LATER_SEE_VIDEO: "볼 영상으로 처리하였습니다.",
   REMOVE_SAVE_VIDEO: "영상을 삭제하였습니다.",
+  CHANGE_LIKE_VIDEO: "해당 영상을 좋아요 했습니다.",
+  CHANGE_CANCEL_LIKE_VIDEO: "해당 영상의 좋아요를 취소했습니다.",
 };
