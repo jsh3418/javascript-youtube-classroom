@@ -56,3 +56,7 @@ export const showElement = (element) => {
 export const hideElement = (element) => {
   element.classList.add("hide");
 };
+
+export const clearSearchResult = () => {
+  $videoList.innerHTML = "";
+};
