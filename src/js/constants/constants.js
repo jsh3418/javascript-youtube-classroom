@@ -9,6 +9,7 @@ export const CURRENT_PAGE = {
   LIKE_VIDEO: "likeVideo",
 };
 export const ERROR_MESSAGE = {
+  NULL_KEYWORD: "검색어를 입력해주세요.",
   MAX_SAVE_VIDEO: "최대 저장할 수 있는 영상 갯수에 도달했습니다. 더 이상 영상을 저장할 수 없습니다.",
 };
 export const SNACKBAR_MESSAGE = {

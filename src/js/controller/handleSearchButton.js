@@ -2,7 +2,7 @@ import { $ } from "../utils/DOM.js";
 import { APIKEY } from "../constants/apikey.js";
 import { clearSearchResult, hideElement, paintVideoList } from "../view/view.js";
 import { paintSkeletonUI, removeSkeletonUI } from "../view/skeletonUI.js";
-import { BASE_URL, LOAD_VIDEO_COUNT } from "../constants/constants.js";
+import { BASE_URL, ERROR_MESSAGE, LOAD_VIDEO_COUNT } from "../constants/constants.js";
 import { addSearchText, addNextPageToken, store, addRecentSearchText } from "../model/model.js";
 import { paintRecentSearchText } from "../view/recentSearchText.js";
 
@@ -11,6 +11,12 @@ const $searchResultNoResult = $(".search-result--no-result");
 
 export const handleSearchButton = async (event) => {
   event.preventDefault();
+
+  if (isKeywordNull()) {
+    alert(ERROR_MESSAGE.NULL_KEYWORD);
+    return;
+  }
+
   hideElement($searchResultNoResult);
   clearSearchResult();
   paintSkeletonUI();
@@ -44,4 +50,8 @@ export const searchYoutube = async (searchText) => {
   } catch (error) {
     console.error(error);
   }
+};
+
+const isKeywordNull = () => {
+  return $searchInputKeyword.value.trim() === "";
 };
