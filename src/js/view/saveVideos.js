@@ -5,7 +5,7 @@ import { CURRENT_PAGE } from "../constants/constants.js";
 export const saveVideoTemplate = (video) => {
   return `
     <li class="video-item" data-video-id=${video.dataVideoId}>
-      <img src=${video.src} alt="video-item-thumbnail" class="video-item__thumbnail">
+      <img loading="lazy" src=${video.src} alt="video-item-thumbnail" class="video-item__thumbnail">
       <h4 class="video-item__title">${video.title}</h4>
       <p class="video-item__channel-name">${video.channelName}</p>
       <p class="video-item__published-date">${video.date}</p>
