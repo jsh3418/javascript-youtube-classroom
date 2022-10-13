@@ -22,20 +22,33 @@ const $sawVideoButton = $("#saw-video-button");
 const $laterSeeVideoButton = $("#later-see-video-button");
 const $likeVideoButton = $("#like-video-button");
 
-const init = () => {
-  $searchModalButton.addEventListener("click", handleSearchModalButton);
-  $searchInput.addEventListener("submit", handleSearchButton);
-  $videoList.addEventListener("scroll", searchResultInfiniteScroll);
-  $videoList.addEventListener("click", handleVideoSaveButton);
-  $dimmer.addEventListener("click", closeModal);
-  $body.addEventListener("keydown", closeModal);
-  window.addEventListener("DOMContentLoaded", initApp);
-  $saveVideoList.addEventListener("click", handleCheckVideoButton);
-  $saveVideoList.addEventListener("click", handleRemoveVideoButton);
-  $saveVideoList.addEventListener("click", handleLikeButton);
+const initNavigator = () => {
   $sawVideoButton.addEventListener("click", handleSawVideoButton);
   $laterSeeVideoButton.addEventListener("click", handleLaterSeeVideoButton);
   $likeVideoButton.addEventListener("click", handleLikedVideoButton);
+  $searchModalButton.addEventListener("click", handleSearchModalButton);
+};
+
+const initMainContainer = () => {
+  $saveVideoList.addEventListener("click", handleCheckVideoButton);
+  $saveVideoList.addEventListener("click", handleRemoveVideoButton);
+  $saveVideoList.addEventListener("click", handleLikeButton);
+};
+
+const initModal = () => {
+  $dimmer.addEventListener("click", closeModal);
+  $body.addEventListener("keydown", closeModal);
+  $searchInput.addEventListener("submit", handleSearchButton);
+  $videoList.addEventListener("scroll", searchResultInfiniteScroll);
+  $videoList.addEventListener("click", handleVideoSaveButton);
+};
+
+const init = () => {
+  window.addEventListener("DOMContentLoaded", initApp);
+
+  initNavigator();
+  initMainContainer();
+  initModal();
 };
 
 init();
