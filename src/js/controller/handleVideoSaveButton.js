@@ -2,7 +2,7 @@ import { ERROR_MESSAGE, LOCALSTORAGE_KEY, MAX_SAVE_VIDEO_COUNT } from "../consta
 import { addSaveVideos, store } from "../model/model.js";
 import { $ } from "../utils/DOM.js";
 import { setLocalStorage } from "../utils/utils.js";
-import { clearLaterSeeVideos, paintSaveVideos } from "../view/saveVideos.js";
+import { paintSaveVideos } from "../view/saveVideos.js";
 import { hideElement } from "../view/view.js";
 
 export const handleVideoSaveButtonClick = (event) => {
@@ -21,7 +21,6 @@ export const handleVideoSaveButtonClick = (event) => {
   hideElement(eventTarget);
   hideElement($noVideos);
   addSaveVideos(video);
-  clearLaterSeeVideos();
   paintSaveVideos(store.currentPage);
   setLocalStorage(LOCALSTORAGE_KEY, store.saveVideos);
 };

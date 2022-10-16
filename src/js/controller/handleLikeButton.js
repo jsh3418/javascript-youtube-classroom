@@ -1,7 +1,7 @@
 import { LOCALSTORAGE_KEY, SNACKBAR_MESSAGE } from "../constants/constants.js";
 import { store } from "../model/model.js";
 import { setLocalStorage } from "../utils/utils.js";
-import { clearLaterSeeVideos, paintSaveVideos } from "../view/saveVideos.js";
+import { paintSaveVideos } from "../view/saveVideos.js";
 import { showSnackbar } from "../view/snackBar.js";
 
 export const handleLikeButtonClick = (event) => {
@@ -10,7 +10,6 @@ export const handleLikeButtonClick = (event) => {
   if (!isLikeButtonClick(eventTarget)) return;
 
   toggleLikeOfSaveVideo(eventTarget);
-  clearLaterSeeVideos();
   paintSaveVideos(store.currentPage);
   setLocalStorage(LOCALSTORAGE_KEY, store.saveVideos);
 

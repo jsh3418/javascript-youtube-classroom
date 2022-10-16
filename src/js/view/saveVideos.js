@@ -11,42 +11,50 @@ export const saveVideoTemplate = (video) => {
       <p class="video-item__published-date">${video.date}</p>
       <button class="check-video-button video-button">✅</button>
       <button class="remove-video-button video-button">🗑</button>
-      <button class="like-video-button video-button${video.isLike ? " like-video" : ""}">👍</button>
+      <button class="like-video-button video-button ${video.isLike ? "like-video" : ""}">👍</button>
     </li>
     `;
 };
 
 const $saveVideoList = $("#save-video-list");
 
+const paintLaterSeeVideos = () => {
+  $saveVideoList.innerHTML = store.saveVideos
+    .filter((video) => video.isChecked === false)
+    .map((video) => saveVideoTemplate(video))
+    .join("");
+};
+
+const paintSawVideos = () => {
+  $saveVideoList.innerHTML = store.saveVideos
+    .filter((video) => video.isChecked === true)
+    .map((video) => saveVideoTemplate(video))
+    .join("");
+};
+
+const paintLikeVideos = () => {
+  $saveVideoList.innerHTML = store.saveVideos
+    .filter((video) => video.isLike === true)
+    .map((video) => saveVideoTemplate(video))
+    .join("");
+};
+
 export const paintSaveVideos = (currentPage) => {
   if (currentPage === CURRENT_PAGE.LATER_SEE_VIDEO) {
-    store.saveVideos.forEach((video) => {
-      if (video.isChecked !== false) return;
-      $saveVideoList.innerHTML += saveVideoTemplate(video);
-    });
+    paintLaterSeeVideos();
 
     return;
   }
 
   if (currentPage === CURRENT_PAGE.SAW_VIDEO) {
-    store.saveVideos.forEach((video) => {
-      if (video.isChecked !== true) return;
-      $saveVideoList.innerHTML += saveVideoTemplate(video);
-    });
+    paintSawVideos();
 
     return;
   }
 
   if (currentPage === CURRENT_PAGE.LIKE_VIDEO) {
-    store.saveVideos.forEach((video) => {
-      if (video.isLike !== true) return;
-      $saveVideoList.innerHTML += saveVideoTemplate(video);
-    });
+    paintLikeVideos();
 
     return;
   }
-};
-
-export const clearLaterSeeVideos = () => {
-  $saveVideoList.innerHTML = "";
 };

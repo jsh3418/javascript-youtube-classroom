@@ -2,7 +2,7 @@ import { $ } from "../utils/DOM.js";
 import { store } from "../model/model.js";
 import { setLocalStorage } from "../utils/utils.js";
 import { LOCALSTORAGE_KEY, SNACKBAR_MESSAGE } from "../constants/constants.js";
-import { clearLaterSeeVideos, paintSaveVideos } from "../view/saveVideos.js";
+import { paintSaveVideos } from "../view/saveVideos.js";
 import { isEmptySaveVideoList } from "../validation/validation.js";
 import { hideElement, showElement } from "../view/view.js";
 import { showSnackbar } from "../view/snackBar.js";
@@ -17,7 +17,6 @@ export const handleRemoveVideoButtonClick = (event) => {
 
   removeVideo(eventTarget);
   setLocalStorage(LOCALSTORAGE_KEY, store.saveVideos);
-  clearLaterSeeVideos();
   paintSaveVideos(store.currentPage);
   showSnackbar(SNACKBAR_MESSAGE.REMOVE_SAVE_VIDEO);
 

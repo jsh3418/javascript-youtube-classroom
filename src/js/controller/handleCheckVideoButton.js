@@ -1,7 +1,7 @@
 import { store } from "../model/model.js";
 import { LOCALSTORAGE_KEY, SNACKBAR_MESSAGE } from "../constants/constants.js";
 import { setLocalStorage } from "../utils/utils.js";
-import { clearLaterSeeVideos, paintSaveVideos } from "../view/saveVideos.js";
+import { paintSaveVideos } from "../view/saveVideos.js";
 import { showSnackbar } from "../view/snackBar.js";
 
 let isUncheck;
@@ -11,7 +11,6 @@ export const handleCheckVideoButtonClick = (event) => {
   if (!isCheckButton(eventTarget)) return;
 
   toggleCheckVideo(eventTarget);
-  clearLaterSeeVideos();
   paintSaveVideos(store.currentPage);
   setLocalStorage(LOCALSTORAGE_KEY, store.saveVideos);
 
