@@ -3,6 +3,6 @@ import { showElement } from "../view/view.js";
 
 const $modalContainer = $(".modal-container");
 
-export const handleSearchModalButton = () => {
+export const handleSearchModalButtonClick = () => {
   showElement($modalContainer);
 };

@@ -9,7 +9,7 @@ import { showSnackbar } from "../view/snackBar.js";
 
 const $noVideos = $(".no-videos");
 
-export const handleRemoveVideoButton = (event) => {
+export const handleRemoveVideoButtonClick = (event) => {
   const eventTarget = event.target;
   if (!isRemoveVideoButton(eventTarget)) return;
 

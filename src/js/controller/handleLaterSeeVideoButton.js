@@ -5,7 +5,7 @@ import { isEmptySaveVideoList } from "../validation/validation.js";
 import { clearLaterSeeVideos, paintSaveVideos } from "../view/saveVideos.js";
 import { hideElement, showElement } from "../view/view.js";
 
-export const handleLaterSeeVideoButton = () => {
+export const handleLaterSeeVideoButtonClick = () => {
   clearLaterSeeVideos();
   updateCurrentPage(CURRENT_PAGE.LATER_SEE_VIDEO);
   paintSaveVideos(store.currentPage);

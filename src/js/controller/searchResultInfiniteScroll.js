@@ -6,7 +6,7 @@ import { searchYoutube } from "./handleSearchButton.js";
 
 const $videoList = $(".video-list");
 
-export const searchResultInfiniteScroll = async () => {
+export const handleVideoListScroll = async () => {
   if (isScrollBottom($videoList)) {
     paintSkeletonUI();
     const searchData = await searchYoutube(store.searchText);

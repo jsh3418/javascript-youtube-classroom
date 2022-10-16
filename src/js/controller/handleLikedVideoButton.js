@@ -5,7 +5,7 @@ import { CURRENT_PAGE } from "../constants/constants.js";
 import { $ } from "../utils/DOM.js";
 import { isEmptySaveVideoList } from "../validation/validation.js";
 
-export const handleLikedVideoButton = () => {
+export const handleLikedVideoButtonClick = () => {
   clearLaterSeeVideos();
   updateCurrentPage(CURRENT_PAGE.LIKE_VIDEO);
   paintSaveVideos(store.currentPage);

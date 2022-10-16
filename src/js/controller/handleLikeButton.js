@@ -4,7 +4,7 @@ import { setLocalStorage } from "../utils/utils.js";
 import { clearLaterSeeVideos, paintSaveVideos } from "../view/saveVideos.js";
 import { showSnackbar } from "../view/snackBar.js";
 
-export const handleLikeButton = (event) => {
+export const handleLikeButtonClick = (event) => {
   const eventTarget = event.target;
 
   if (!isLikeButtonClick(eventTarget)) return;

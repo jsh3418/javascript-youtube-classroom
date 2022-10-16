@@ -5,7 +5,7 @@ import { setLocalStorage } from "../utils/utils.js";
 import { clearLaterSeeVideos, paintSaveVideos } from "../view/saveVideos.js";
 import { hideElement } from "../view/view.js";
 
-export const handleVideoSaveButton = (event) => {
+export const handleVideoSaveButtonClick = (event) => {
   const eventTarget = event.target;
 
   if (!isSaveButtonClick(eventTarget)) return;

@@ -5,7 +5,7 @@ import { clearLaterSeeVideos, paintSaveVideos } from "../view/saveVideos.js";
 import { showSnackbar } from "../view/snackBar.js";
 
 let isUncheck;
-export const handleCheckVideoButton = (event) => {
+export const handleCheckVideoButtonClick = (event) => {
   const eventTarget = event.target;
 
   if (!isCheckButton(eventTarget)) return;

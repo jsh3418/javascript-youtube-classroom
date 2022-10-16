@@ -9,7 +9,7 @@ import { paintRecentSearchText } from "../view/recentSearchText.js";
 const $searchInputKeyword = $("#search-input-keyword");
 const $searchResultNoResult = $(".search-result--no-result");
 
-export const handleSearchButton = async (event) => {
+export const handleSearchSubmit = async (event) => {
   event.preventDefault();
 
   if (isKeywordNull()) {
