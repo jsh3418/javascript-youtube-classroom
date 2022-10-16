@@ -11,7 +11,7 @@ import { handleLaterSeeVideoButtonClick } from "./controller/handleLaterSeeVideo
 import { handleLikeButtonClick } from "./controller/handleLikeButton.js";
 import { handleLikedVideoButtonClick } from "./controller/handleLikedVideoButton.js";
 import { store } from "./model/model.js";
-import { LOCALSTORAGE_KEY } from "./constants/constants.js";
+import { CURRENT_PAGE, LOCALSTORAGE_KEY } from "./constants/constants.js";
 import { getLocalStorage } from "./utils/utils.js";
 import { paintSaveVideos } from "./view/saveVideos.js";
 import { hideElement, showElement } from "./view/view.js";
@@ -47,7 +47,7 @@ const initMainContainer = () => {
   }
 
   hideElement($noVideos);
-  paintSaveVideos(store.currentPage);
+  paintSaveVideos(CURRENT_PAGE.LATER_SEE_VIDEO);
 };
 
 const initModal = () => {
