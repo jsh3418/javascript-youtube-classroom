@@ -10,5 +10,5 @@ export const handleLaterSeeVideoButtonClick = () => {
   paintSaveVideos(store.currentPage);
 
   const $noVideos = $(".no-videos");
-  isEmptySaveVideoList() ? showElement($noVideos) : hideElement($noVideos);
+  isEmptySaveVideoList(store.currentPage) ? showElement($noVideos) : hideElement($noVideos);
 };

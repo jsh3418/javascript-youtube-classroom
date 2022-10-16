@@ -20,7 +20,7 @@ export const handleRemoveVideoButtonClick = (event) => {
   paintSaveVideos(store.currentPage);
   showSnackbar(SNACKBAR_MESSAGE.REMOVE_SAVE_VIDEO);
 
-  isEmptySaveVideoList() ? showElement($noVideos) : hideElement($noVideos);
+  isEmptySaveVideoList(store.currentPage) ? showElement($noVideos) : hideElement($noVideos);
 };
 
 const isRemoveVideoButton = (eventTarget) => {
