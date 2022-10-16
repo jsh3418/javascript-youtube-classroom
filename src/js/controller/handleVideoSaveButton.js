@@ -5,26 +5,24 @@ import { setLocalStorage } from "../utils/utils.js";
 import { paintSaveVideos } from "../view/saveVideos.js";
 import { hideElement } from "../view/view.js";
 
-export const handleVideoSaveButtonClick = (event) => {
-  const eventTarget = event.target;
-
-  if (!isSaveButtonClick(eventTarget)) return;
+export const handleVideoSaveButtonClick = ({ target }) => {
+  if (!isSaveButtonClick(target)) return;
 
   if (isMaxSaveVideos()) {
     alert(ERROR_MESSAGE.MAX_SAVE_VIDEO);
     return;
   }
 
-  const video = eventTarget.closest("li");
+  const video = target.closest("li");
   const $noVideos = $(".no-videos");
 
-  hideElement(eventTarget);
+  hideElement(target);
   hideElement($noVideos);
   addSaveVideos(video);
   paintSaveVideos(store.currentPage);
   setLocalStorage(LOCALSTORAGE_KEY, store.saveVideos);
 };
 
-const isSaveButtonClick = (eventTarget) => eventTarget.classList.contains("video-item__save-button");
+const isSaveButtonClick = (target) => target.classList.contains("video-item__save-button");
 
 const isMaxSaveVideos = () => store.saveVideos.length === MAX_SAVE_VIDEO_COUNT;

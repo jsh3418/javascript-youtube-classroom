@@ -5,12 +5,10 @@ import { paintSaveVideos } from "../view/saveVideos.js";
 import { showSnackbar } from "../view/snackBar.js";
 
 let isUncheck;
-export const handleCheckVideoButtonClick = (event) => {
-  const eventTarget = event.target;
+export const handleCheckVideoButtonClick = ({ target }) => {
+  if (!isCheckButton(target)) return;
 
-  if (!isCheckButton(eventTarget)) return;
-
-  toggleCheckVideo(eventTarget);
+  toggleCheckVideo(target);
   paintSaveVideos(store.currentPage);
   setLocalStorage(LOCALSTORAGE_KEY, store.saveVideos);
 
@@ -25,13 +23,13 @@ export const handleCheckVideoButtonClick = (event) => {
   }
 };
 
-const isCheckButton = (eventTarget) => {
-  return eventTarget.classList.contains("check-video-button");
+const isCheckButton = (target) => {
+  return target.classList.contains("check-video-button");
 };
 
-const toggleCheckVideo = (eventTarget) => {
+const toggleCheckVideo = (target) => {
   store.saveVideos.forEach((video) => {
-    if (video.dataVideoId === eventTarget.closest("li").dataset.videoId) {
+    if (video.dataVideoId === target.closest("li").dataset.videoId) {
       video.isChecked = !video.isChecked;
       isUncheck = video.isChecked;
     }

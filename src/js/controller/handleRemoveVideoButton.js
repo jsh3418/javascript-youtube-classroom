@@ -9,13 +9,12 @@ import { showSnackbar } from "../view/snackBar.js";
 
 const $noVideos = $(".no-videos");
 
-export const handleRemoveVideoButtonClick = (event) => {
-  const eventTarget = event.target;
-  if (!isRemoveVideoButton(eventTarget)) return;
+export const handleRemoveVideoButtonClick = ({ target }) => {
+  if (!isRemoveVideoButton(target)) return;
 
   if (!confirm("정말로 삭제하시겠습니까?")) return;
 
-  removeVideo(eventTarget);
+  removeVideo(target);
   setLocalStorage(LOCALSTORAGE_KEY, store.saveVideos);
   paintSaveVideos(store.currentPage);
   showSnackbar(SNACKBAR_MESSAGE.REMOVE_SAVE_VIDEO);
@@ -23,13 +22,13 @@ export const handleRemoveVideoButtonClick = (event) => {
   isEmptySaveVideoList(store.currentPage) ? showElement($noVideos) : hideElement($noVideos);
 };
 
-const isRemoveVideoButton = (eventTarget) => {
-  return eventTarget.closest("button")?.classList.contains("remove-video-button");
+const isRemoveVideoButton = (target) => {
+  return target.closest("button")?.classList.contains("remove-video-button");
 };
 
-const removeVideo = (eventTarget) => {
+const removeVideo = (target) => {
   store.saveVideos.forEach((element, index) => {
-    if (element.dataVideoId === eventTarget.closest("li").dataset.videoId) {
+    if (element.dataVideoId === target.closest("li").dataset.videoId) {
       store.saveVideos.splice(index, 1);
     }
   });

@@ -4,12 +4,10 @@ import { setLocalStorage } from "../utils/utils.js";
 import { paintSaveVideos } from "../view/saveVideos.js";
 import { showSnackbar } from "../view/snackBar.js";
 
-export const handleLikeButtonClick = (event) => {
-  const eventTarget = event.target;
+export const handleLikeButtonClick = ({ target }) => {
+  if (!isLikeButtonClick(target)) return;
 
-  if (!isLikeButtonClick(eventTarget)) return;
-
-  toggleLikeOfSaveVideo(eventTarget);
+  toggleLikeOfSaveVideo(target);
   paintSaveVideos(store.currentPage);
   setLocalStorage(LOCALSTORAGE_KEY, store.saveVideos);
 
@@ -23,19 +21,19 @@ export const handleLikeButtonClick = (event) => {
   }
 };
 
-const isLikeButtonClick = (eventTarget) => {
-  return eventTarget.classList.contains("like-video-button");
+const isLikeButtonClick = (target) => {
+  return target.classList.contains("like-video-button");
 };
 
 let isLike;
-const toggleLikeOfSaveVideo = (eventTarget) => {
+const toggleLikeOfSaveVideo = (target) => {
   store.saveVideos.forEach((video) => {
-    if (!isMatchVideoId(video.dataVideoId, eventTarget)) return;
+    if (!isMatchVideoId(video.dataVideoId, target)) return;
     video.isLike = !video.isLike;
     isLike = video.isLike;
   });
 };
 
-const isMatchVideoId = (videoId, eventTarget) => {
-  return videoId === eventTarget.closest("li").dataset.videoId;
+const isMatchVideoId = (videoId, target) => {
+  return videoId === target.closest("li").dataset.videoId;
 };
